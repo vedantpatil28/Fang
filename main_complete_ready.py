@@ -2218,9 +2218,9 @@ async def serve_intelligence_dashboard(company_id: int):
     """
 
 if __name__ == "__main__":
-    # Production server configuration
+    import uvicorn
     port = int(os.getenv("PORT", 8080))
-    host = "0.0.0.0"
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
     
     if ENVIRONMENT == "development":
         uvicorn.run(
